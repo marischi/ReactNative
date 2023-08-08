@@ -1,20 +1,42 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, Image } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+class App extends Component {
+  render() {
+    let nome = 'Mari';
+
+    return (
+      <View>
+        <Text style={{ margin: 25, fontSize: 25, textAlign: 'center' }}>
+          Meu primeiro app
+        </Text>
+        <Text style={{ marginLeft: 15, color: 'red', fontSize: 20 }}>
+          Olá mundo!!
+        </Text>
+
+        <Text style={{ fontSize: 20 }}> {nome} </Text>
+        <Foto largura={350} altura={350} fulano='IFSP CAR' />
+      </View>
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
+
+class Foto extends Component {
+  render() {
+    let img =
+      'https://www.ifspcaraguatatuba.edu.br/images/conteudo/Noticias/2023/6636/imagem-1-parte-do-publicoque-assistiu-as-apresentacoesdo-sarau-artistico.png';
+
+    return (
+      <View>
+        <Image
+          source={{ uri: img }}
+          style={{ width: this.props.largura, height: this.props.altura }}
+        />
+
+        <Text>{this.props.fulano}</Text>
+      </View>
+    );
+  }
+}
